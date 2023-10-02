@@ -27,7 +27,6 @@ app.use(express.static(path.join(path.resolve(), "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Setting up View Engine
 app.set("view engine", "ejs");
 
 const isAuthenticated = async (req, res, next) => {
@@ -47,6 +46,7 @@ app.get("/", isAuthenticated, (req, res) => {
   res.render("logout", { name: req.user.name });
 });
 
+
 app.get("/login", (req, res) => {
   res.render("login");
 });
@@ -60,7 +60,8 @@ app.post("/login", async (req, res) => {
 
   let user = await User.findOne({ email });
 
-  if (!user) return res.redirect("/register");
+  if (!user){
+    return res.redirect("/register")};
 
   const isMatch = await bcrypt.compare(password, user.password);
 
