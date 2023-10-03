@@ -41,6 +41,9 @@ const isAuthenticated = async (req, res, next) => {
     res.redirect("/login");
   }
 };
+app.get("/homepage",(req,res)=>{
+  res.render("homepage");
+})
 
 app.get("/", isAuthenticated, (req, res) => {
   res.render("logout", { name: req.user.name });
@@ -75,7 +78,7 @@ app.post("/login", async (req, res) => {
     expires: new Date(Date.now() + 60 * 1000),
   });
   res.redirect("/");
-});
+})
 
 app.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
