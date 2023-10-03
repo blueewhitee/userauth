@@ -64,7 +64,7 @@ app.post("/login", async (req, res) => {
   let user = await User.findOne({ email });
 
   if (!user){
-    return res.redirect("/register")};
+    return res.redirect("/success")};
 
   const isMatch = await bcrypt.compare(password, user.password);
 
@@ -78,6 +78,10 @@ app.post("/login", async (req, res) => {
     expires: new Date(Date.now() + 60 * 1000),
   });
   res.redirect("/");
+})
+app.get("/success",(req,res)=>{
+  res.render("success");
+
 })
 
 app.post("/register", async (req, res) => {
