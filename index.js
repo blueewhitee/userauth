@@ -6,8 +6,8 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017", {
-    dbName: "backend",
+  .connect("mongodb+srv://ak2039:Hindalco10hindalco@ghsrm-task.qvvpmlf.mongodb.net/", {
+    dbName: "GHSR-TASK",
   })
   .then(() => console.log("Database Connected"))
   .catch((e) => console.log(e));
@@ -38,7 +38,7 @@ const isAuthenticated = async (req, res, next) => {
 
     next();
   } else {
-    res.redirect("/login");
+    res.redirect("/homepage");
   }
 };
 app.get("/homepage",(req,res)=>{
@@ -117,5 +117,6 @@ app.get("/logout", (req, res) => {
 });
 
 app.listen(5000, () => {
+  
   console.log("Server is working");
 });
