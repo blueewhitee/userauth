@@ -4,7 +4,8 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-const url = "mongodb+srv://ak2039:Hindalco10hindalco@ghsrm-task.qvvpmlf.mongodb.net/"
+const url = "mongodb+srv://ak2039:Hindalco10hindalco@ghsrm-task.qvvpmlf.mongodb.net/";
+const PORT = process.env.PORT ||5000
 
 mongoose
   .connect(url, {
@@ -117,7 +118,7 @@ app.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
-app.listen(userauth-och8.onrender.com, () => {
+app.listen(PORT, () => {
   
   console.log("Server is working");
 });
