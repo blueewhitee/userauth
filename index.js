@@ -4,9 +4,10 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+const url = "mongodb+srv://ak2039:Hindalco10hindalco@ghsrm-task.qvvpmlf.mongodb.net/"
 
 mongoose
-  .connect("mongodb+srv://ak2039:Hindalco10hindalco@ghsrm-task.qvvpmlf.mongodb.net/", {
+  .connect(url, {
     dbName: "GHSR-TASK",
   })
   .then(() => console.log("Database Connected"))
