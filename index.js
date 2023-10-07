@@ -88,6 +88,10 @@ app.get("/success",(req,res)=>{
 
 app.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
+  if(name==''||email==''||password==''){
+    return res.render("register", { name,email,password, message: "invalid name " });
+    
+  }
 
   let user = await User.findOne({ email });
   if (user) {
