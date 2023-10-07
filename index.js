@@ -89,7 +89,7 @@ app.get("/success",(req,res)=>{
 app.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
   if(name==''||email==''||password==''){
-    return res.render("register", { name,email,password, message: "invalid name " });
+    return res.render("register", { name,email,password, message: "invalid input" });
     
   }
 
